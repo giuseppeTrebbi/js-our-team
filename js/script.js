@@ -36,3 +36,58 @@ const teamMembers = [
     img: "img/female3.png"
   }
 ];
+
+function createCardTemplate(teamMember) {
+  const { name, role, email, img } = teamMember;
+  const card =
+  `<div class="col">
+    <div class="card bg-dark mb-5 ms-3">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img class="card-img" src="${img}" alt="${name}"/>
+        </div>
+      
+        <div class="col-md-8">
+          <div class="card-body">
+            <h3 class="card-title text-light">${name}</h3>
+            <p class="card-text text-light">${role}</p>
+            <a class="text-decoration-none" href="">Mail: ${email}</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>`;
+  return card;
+};
+
+const teamContainerElem = document.querySelector(".row");
+let teamCards = "";
+
+for (let i = 0; i < teamMembers.length; i++) {
+  teamCards += createCardTemplate(teamMembers[i]);
+};
+teamContainerElem.innerHTML = teamCards;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
